@@ -1,0 +1,69 @@
+<title>Add Question</title>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/AdminHome">Home</a>
+        <a class="nav-item nav-link" routerLink="/QuestionList">Help(Question Details)</a>
+        <a class="nav-item nav-link" routerLink="/Gettests">Help(Test Details)</a>
+    </div>
+</nav>
+<br>
+<div style="text-align:center">
+  <!--<h1>
+    Welcome to {{ title }}!
+  </h1>-->
+</div>
+<html>
+ <style>
+  li{color: white}
+  p{ color :red;text-align : right}
+  button{
+    text-align:right;
+}
+ </style>
+  <body>
+     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+     <div style= color:white> Adding Question Details..</div>
+     </nav>
+     <br>
+     <br>
+     <div class="tablecontent shadow-lg py-4 px-3">
+      <table class="table table-sm">
+         <tr>
+            <th>Question Id</th>
+            <td><input type=text [(ngModel)]="question.questionId"></td>
+         </tr>
+         <tr>
+            <th>Question Content</th>
+            <td><input type=text [(ngModel)]="question.questionContent"></td>
+         </tr>
+         <tr>
+            <th>Option 1</th>
+            <td><input type=text [(ngModel)]="question.option1"></td>
+         </tr>
+         <tr>
+            <th>Option 2</th>
+            <td><input type=text [(ngModel)]="question.option2"></td>
+         </tr>
+         <tr>
+            <th>Option 3</th>
+            <td><input type=text [(ngModel)]="question.option3"></td>
+         </tr>
+          <tr>
+            <th>Marks</th>
+            <td><input type=text [(ngModel)]="question.marks"></td>
+         </tr>
+          <tr>
+            <th>Answer</th>
+            <td><input type=text [(ngModel)]="question.answerOption"></td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <br>
+               <button class="btn btn-primary active" type="button" (click)="insertQuestion()">Add Question Details</button>
+            </td>
+         </tr>       
+      </table>
+     </div>
+     <br><br><br>
+  </body>
+</html>

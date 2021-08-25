@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/AdminHome">Home</a>
+        <a class="nav-item nav-link" routerLink="/QuestionList">Help(Question Details)</a>
+        <a class="nav-item nav-link" routerLink="/Gettests">Help(Test Details)</a>
+    </div>
+</nav>
+<br>
+<div style="text-align:center">
+  <!--<h1>
+    Welcome to {{ title }}!
+  </h1>-->
+</div>
+<html>
+ <style>
+  li{color: white}
+  p{ color :red;text-align : right}
+  button{
+    text-align:right;
+}
+ </style>
+  <body>
+      <p>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Delete Question</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+
+</style>
+</head>
+<body>
+</body>
+</html>                            
+     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+     <div style= color:white> Deleting Question Details..</div>
+     </nav>
+     <br>
+     <div class="tablecontent shadow-lg py-4 px-3">
+      <div class="alert alert-warning alert-dismissible fade show">
+         <h4 class="alert-heading"><i class="fa fa-warning"></i> Warning!</h4>
+         <p>Here is the section where deletion of data will take place, it is an activity where data cannot be bought back, so be sure about the main details(here it is the questionId).</p>
+         <hr>
+         <p class="mb-0">In case any doubts arise, please reach out to the "help" in navigation bar!</p>
+     </div>
+      <table class="table table-sm">
+         <tr>
+            <th>Question Id</th>
+            <td>
+              <input type=text name="myName" [(ngModel)]="question.questionId" required> 
+            </td>
+         </tr>
+         <tr>
+            <th>Question Content</th>
+            <td><input type=text [(ngModel)]="question.questionContent"></td>
+         </tr>
+         <tr>
+            <th>Option 1</th>
+            <td><input type=text [(ngModel)]="question.option1"></td>
+         </tr>
+         <tr>
+            <th>Option 2</th>
+            <td><input type=text [(ngModel)]="question.option2"></td>
+         </tr>
+         <tr>
+            <th>Option 3</th>
+            <td><input type=text [(ngModel)]="question.option3"></td>
+         </tr>
+          <tr>
+            <th>Marks</th>
+            <td><input type=text [(ngModel)]="question.marks"></td>
+         </tr>
+          <tr>
+            <th>Answer</th>
+            <td><input type=text [(ngModel)]="question.answerOption"></td>
+         </tr>
+         <tr>
+            <td colspan="2">
+               <br>
+               <button data-toggle="tooltip" data-placement="left" title="Just enter the QuestionId, the rest of the details will be auto-displayed" class="btn btn-primary active" type="button" (click)="getQuestion()">Get Question Details</button>
+               &nbsp;
+               <button class="btn btn-danger active" type="button" (click)="deleteQuestion()">Delete Question Details</button>
+            </td>
+         </tr>
+      </table>
+     </div>
+        <br><br><br> 
+  </body>
+</html>
