@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: auto; /* only for demonstration, should be removed */
+  background: rgb(255, 255, 255);
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.time {
+  float: right;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  border: solid rgb(218, 218, 218) 1px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: rgb(255, 78, 78);
+  font-weight: 600;
+}
+article {
+  float: left;
+  margin-left: 40px;
+  margin-top:10px;
+  padding: 20px;
+  width: 65%;
+  font-size: 25px;
+  background-color: #f8f9fa;
+  border: solid rgb(218, 218, 218) 1px;
+  border-radius: 5px;
+  height: auto; /* only for demonstration, should be removed */
+}
+input[type=checkbox]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+.instructions{
+  padding :10px;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 5px;
+  color:rgb(93, 93, 93);
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+.myDiv {   
+  height: auto;
+  float: right;
+  width:25%;
+  font-size: 14px;
+  margin-top: 10px;
+  background-color:rgb(68, 68, 68);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  padding:20px ;
+  margin-right: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
+</head>
+<body>
+
+<section>
+  <!--<nav>
+  
+ <a class="nav-item nav-link" routerLink="/">Logout</a>
+  </nav>-->
+  <br>
+      <div *ngIf="displayMarks" class="myDiv">
+        <h4 style="text-align: center;font-weight: 600;">Report Card</h4>
+        <hr color="white">
+        <h6 style="text-align: center;font-weight:500;">Marks Scored : {{marks}}</h6>
+        <hr color="white">
+           <ul *ngFor="let a of ans;let i = index">
+              <li> 
+                Question No: {{i+1}} : 
+                  <p *ngIf="a!=0 else elseblock">Correct</p>
+                  <ng-template #elseblock>Wrong</ng-template>
+              </li>
+           </ul> 
+           <hr color="white">
+           <div style="align-items:center;">
+            <button class="btn btn-success " style="width:100%;"type="button" routerLink="/User">Exit Test</button> 
+          </div>
+                  
+      </div>
+  <article> 
+    <form >
+      
+     <div style="border: solid rgb(202, 201, 201) 1px" class="instructions">
+     <h4><b>INSTRUCTIONS</b></h4>
+     <p>• The quiz contains 15 question with 3 options each, with only 'one' right option.<br>
+      • No negative marking, so try and attempt all the questions.<br>
+      • Un-Answered questions will be considered as wrong, 'zero' marks will be awarded.</p>
+     </div>
+     <br>
+     <button class="btn btn-success " type="button" [disabled]="takeTestClicked" (click)="getQuestions(); takeTestClicked = true;" >Take Test</button>
+     
+     <div class="time" *ngIf="takeTestClicked">Time left : 
+      
+     </div>
+     <hr>
+     
+     <div *ngFor="let q of questions;let i = index" style="font-size: 16px; font-weight: 500;text-align: left;margin-left:10px">
+       <div style="text-decoration:bold;" >Qu. {{q.questionId}}. {{q.questionContent}}</div>
+         <!--<div>{{q.questionContent}}</div>-->
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" value="1" class="check-form-input"  (click)="getSelectedOption(1,i)" [disabled]="clicked">&nbsp;&nbsp;{{q.option1}}</div> 
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" value="2" class="check-form-input" (click)="getSelectedOption(2,i)" [disabled]="clicked">&nbsp;&nbsp;{{q.option2}}</div> 
+            <div class="form-check">
+               <input type="checkbox" class="form-check-input" value="3" class="check-form-input" (click)="getSelectedOption(3,i)" [disabled]="clicked">&nbsp;&nbsp;{{q.option3}}</div>
+          <hr>
+              </div>
+          <p style="text-align: center;color: rgb(132, 132, 132);font-size: 20px;">All The Best !</p>
+     <hr>
+          <button class="btn btn-danger " style="float:right;"type="button" [disabled]="clicked"   (click)="getMarks(); clicked = true;">Submit Test</button>
+
+</form>
+  </article>
+</section>
+
+</body>
+</html>
